@@ -19,20 +19,20 @@ def load_classifier(filepath):
 
 def predict(data, model):
     prediction = model.predict(data)
+    preds = model.predict_proba(data)[0]
+    labels = model.classes_
+    for i in range(len(labels)):
+        print(f"{labels[i]} - {preds[i]}")
     return prediction
 
 
 if __name__ == '__main__':
-    input = "finance"
+    input = "marketing"
     clean_data = preprocess(input)
     v = load_vectorizer("vectorizer.pkl")
-    print("vec loADED")
+    print("vec loaded")
     [input_v] = v.transform([clean_data])
     model = load_classifier("model.pkl")
     print("model loaded")
     prediction = predict(input_v, model)
-
-
-# Export pickle file
-with open("classifier.pkl", "wb") as file:
-    pickle.load(model, file)
+    print(prediction)

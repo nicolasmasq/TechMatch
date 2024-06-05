@@ -9,6 +9,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 from utils import preprocess
 
+
 filename_sm = "data/sales_tools - sales.csv"
 filename_pm = "data/pm_tools - pm.csv"
 filename_fin = "data/finance_tools - finance.csv"
@@ -31,7 +32,7 @@ def train_vectorizer(X):
 
 def train_classifier(X_train, y_train):
     #Model Training
-    model = RandomForestClassifier(n_estimators=100)
+    model = RandomForestClassifier(n_estimators=100, random_state=42)
     model.fit(X_train, y_train)
     with open("model.pkl", "wb") as file:
         pickle.dump(model, file)
@@ -55,11 +56,11 @@ if __name__  == "__main__":
     y = df["Tool name"]
     print("Train vectorizer")
     v = train_vectorizer(X)
-    print("Vectoriyer trasined")
+    print("Vectorizer trained")
     X = v.transform(X)
-    print("transfomred")
+    print("transformed")
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-    print("Traine model")
+    print("Train model")
     model = train_classifier(X_train, y_train)
     print("Model trained")
     evaluate(X_test, y_test, model)
