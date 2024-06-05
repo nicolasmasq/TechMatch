@@ -1,7 +1,7 @@
 ### THIS FILE CONTAINS ALL THE FUNCTIONS TO BE EXECUTED WHEN THE USER GIVES AN INPUT
 
 import pickle
-from utils import preprocess
+from techmatch.utils import preprocess
 
 def load_vectorizer(filepath):
     #load vectorizer from pickle file
@@ -25,6 +25,10 @@ def predict(data, model):
         print(f"{labels[i]} - {preds[i]}")
     return prediction
 
+
+def predict_api(text):
+    tool = ""
+    return tool
 
 if __name__ == '__main__':
     input = "marketing"
