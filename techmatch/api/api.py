@@ -1,5 +1,11 @@
 from fastapi import FastAPI
 from techmatch.predict import predict_api
+import nltk
+
+nltk.download("punkt")
+nltk.download("stopwords")
+nltk.download("wordnet")
+nltk.download("omw-1.4")
 
 app = FastAPI()
 
@@ -8,11 +14,12 @@ app = FastAPI()
 def index():
     #load a machine learning model
     #model.predict
-    return {'ok': True}
+   return {'ok': True}
 
 
 @app.get('/tech_api')
 def predict(text):
     # Ml + prediction
     [tool] = predict_api(text)
+    print(tool)
     return {'tool': tool}
