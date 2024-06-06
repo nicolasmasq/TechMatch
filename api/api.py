@@ -14,6 +14,5 @@ def index():
 @app.get('/tech_api')
 def predict(text):
     # Ml + prediction
-    tool = predict_api(text)
+    [tool] = predict_api(text)
     return {'tool': tool}
-
