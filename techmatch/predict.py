@@ -21,8 +21,8 @@ def predict(data, model):
     prediction = model.predict(data)
     preds = model.predict_proba(data)[0]
     labels = model.classes_
-    for i in range(len(labels)):
-        print(f"{labels[i]} - {preds[i]}")
+    #for i in range(len(labels)):
+        #print(f"{labels[i]} - {preds[i]}")
     return prediction
 
 
@@ -33,3 +33,6 @@ def predict_api(text):
     model = load_classifier("model.pkl")
     tool = predict(transformed_data, model)
     return tool
+
+if __name__ == "__main__":
+    predict_api("something something")
