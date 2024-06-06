@@ -21,22 +21,18 @@ def predict(data, model):
     prediction = model.predict(data)
     preds = model.predict_proba(data)[0]
     labels = model.classes_
-    for i in range(len(labels)):
-        print(f"{labels[i]} - {preds[i]}")
+    #for i in range(len(labels)):
+        #print(f"{labels[i]} - {preds[i]}")
     return prediction
 
 
 def predict_api(text):
-    tool = ""
+    clean_data = preprocess(text)
+    vectorizer = load_vectorizer("vectorizer.pkl")
+    transformed_data = vectorizer.transform([clean_data])
+    model = load_classifier("model.pkl")
+    tool = predict(transformed_data, model)
     return tool
 
-if __name__ == '__main__':
-    input = "marketing"
-    clean_data = preprocess(input)
-    v = load_vectorizer("vectorizer.pkl")
-    print("vec loaded")
-    [input_v] = v.transform([clean_data])
-    model = load_classifier("model.pkl")
-    print("model loaded")
-    prediction = predict(input_v, model)
-    print(prediction)
+if __name__ == "__main__":
+    predict_api("something something")
