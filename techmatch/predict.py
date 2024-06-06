@@ -27,16 +27,9 @@ def predict(data, model):
 
 
 def predict_api(text):
-    tool = ""
-    return tool
-
-if __name__ == '__main__':
-    input = "marketing"
-    clean_data = preprocess(input)
-    v = load_vectorizer("vectorizer.pkl")
-    print("vec loaded")
-    [input_v] = v.transform([clean_data])
+    clean_data = preprocess(text)
+    vectorizer = load_vectorizer("vectorizer.pkl")
+    transformed_data = vectorizer.transform([clean_data])
     model = load_classifier("model.pkl")
-    print("model loaded")
-    prediction = predict(input_v, model)
-    print(prediction)
+    tool = predict(transformed_data, model)
+    return tool
