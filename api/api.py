@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from techmatch.predict import predict_api
+from typing import List
 
 app = FastAPI()
 
@@ -12,7 +13,7 @@ def index():
 
 
 @app.get('/tech_api')
-def predict(text):
+def predict(text):    #  <=== "text" is the API params
     # Ml + prediction
-    [tool] = predict_api(text)
-    return {'tool': tool}
+    tools = predict_api(text)
+    return {'tool': tools}
