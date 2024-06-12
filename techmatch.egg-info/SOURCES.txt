@@ -1,0 +1,23 @@
+.gitignore
+Dockerfile
+LICENSE
+README.md
+model.pkl
+requirements.txt
+setup.py
+vectorizer.pkl
+Notebooks/notebook.ipynb
+api/api.py
+data/finance_tools - finance.csv
+data/pm_tools - pm.csv
+data/sales_tools - sales.csv
+techmatch/__init__.py
+techmatch/predict.py
+techmatch/train.py
+techmatch/utils.py
+techmatch.egg-info/PKG-INFO
+techmatch.egg-info/SOURCES.txt
+techmatch.egg-info/dependency_links.txt
+techmatch.egg-info/not-zip-safe
+techmatch.egg-info/requires.txt
+techmatch.egg-info/top_level.txt
