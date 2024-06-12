@@ -6,9 +6,7 @@ with open("requirements.txt") as f:
 requirements = [x.strip() for x in content if "git+" not in x]
 
 setup(name='techmatch',
-      version="0.0.1",
       description="techmatch Model (train_at_scale)",
-      author="Le wagon - Team Techmatch",
       install_requires=requirements,
       packages=find_packages(),
       include_package_data=True,
