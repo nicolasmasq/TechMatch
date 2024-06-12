@@ -21,9 +21,10 @@ def predict(data, model):
     prediction = model.predict(data)
     preds = model.predict_proba(data)[0]
     labels = model.classes_
-    #for i in range(len(labels)):
-        #print(f"{labels[i]} - {preds[i]}")
-    return prediction
+    tools = []
+    label_preds = list(zip(labels, preds))
+    sorted_label_preds = sorted(label_preds, key=lambda x: x[1], reverse=True)
+    return sorted_label_preds
 
 
 def predict_api(text):
@@ -31,8 +32,8 @@ def predict_api(text):
     vectorizer = load_vectorizer("vectorizer.pkl")
     transformed_data = vectorizer.transform([clean_data])
     model = load_classifier("model.pkl")
-    tool = predict(transformed_data, model)
-    return tool
+    tools = predict(transformed_data, model)
+    return tools
 
 if __name__ == "__main__":
     predict_api("something something")
