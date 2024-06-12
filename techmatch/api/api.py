@@ -7,6 +7,16 @@ nltk.download("stopwords")
 nltk.download("wordnet")
 nltk.download("omw-1.4")
 
+import nltk
+
+nltk.download('punkt')
+
+nltk.download('stopwords')
+
+nltk.download('wordnet')
+
+nltk.download('omw-1.4')
+
 app = FastAPI()
 
 # Define a root `/` endpoint
@@ -21,5 +31,4 @@ def index():
 def predict(text):
     # Ml + prediction
     [tool] = predict_api(text)
-    print(tool)
     return {'tool': tool}
