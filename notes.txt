@@ -1,8 +1,8 @@
-GCP_PROJECT_ID="learned-raceway-424609-v8"
+GCP_PROJECT_ID="wagonbootcamp1"
 DOCKER_IMAGE_NAME="docker-techmatch"
 GCP_REGION="europe-west1"
 
-DOCKER_REPO_NAME="techmatch-repo"
+DOCKER_REPO_NAME="techmatch-repo1"
 
 gcloud artifacts repositories create $DOCKER_REPO_NAME --repository-format=docker --location=$GCP_REGION --description="Desc"
 

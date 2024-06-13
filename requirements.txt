@@ -1,9 +1,7 @@
 seaborn
-numpy==1.23.5
 pandas==1.5.3
-setuptools==63.2.0
-pickle
-requests
-streamlit
 scikit-learn==1.2.2
-sklearn-pandas==2.2.0
+setuptools==63.2.0
+nltk
+fastapi
+unicorn
